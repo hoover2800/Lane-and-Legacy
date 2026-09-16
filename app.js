@@ -15,8 +15,8 @@ async function loadProducts(){
           <h3>${escapeHTML(p.name)}</h3>
           <p>${escapeHTML(p.description||'')}</p>
           <div class="card-actions">
-            <a class="etsy" href="${safeURL(p.etsy_url)}" ${p.etsy_url==='#'?'':'target="_blank" rel="noopener"'}>Digital / Etsy</a>
-            <a class="amazon" href="${safeURL(p.amazon_url)}" ${p.amazon_url==='#'?'':'target="_blank" rel="noopener"'}>Print / Amazon</a>
+            ${p.etsy_url && p.etsy_url !== '#' ? `<a class="etsy" href="${safeURL(p.etsy_url)}" target="_blank" rel="noopener">Digital / Etsy</a>` : ''}
+            ${p.amazon_url && p.amazon_url !== '#' ? `<a class="amazon" href="${safeURL(p.amazon_url)}" target="_blank" rel="noopener">Print / Amazon</a>` : ''}
           </div>
         </div>
       </article>`).join('');
