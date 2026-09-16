@@ -7,7 +7,7 @@ async function loadProducts(){
     const products=(data.featuredProducts||[]).filter(p=>p.featured);
     target.innerHTML=products.map(p=>`
       <article class="card">
-        <div class="art">${escapeHTML(p.name)}</div>
+        <div class="art">${p.image ? `<img src="${encodeURI(p.image)}" alt="${escapeHTML(p.name)} cover" loading="lazy">` : escapeHTML(p.name)}</div>
         <div class="card-body">
           <div class="tag">${escapeHTML(p.category||'Lane & Legacy')}</div>
           <h3>${escapeHTML(p.name)}</h3>
