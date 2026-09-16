@@ -6,6 +6,10 @@ async function loadProducts(){
     const data=await r.json();
     const etsyShop=document.getElementById('etsy-shop');
     if(etsyShop && data.etsyShopUrl) etsyShop.href=data.etsyShopUrl;
+    const facebookLink=document.getElementById('facebook-link');
+if(facebookLink && data.facebookUrl) facebookLink.href=data.facebookUrl;
+const pinterestLink=document.getElementById('pinterest-link');
+if(pinterestLink && data.pinterestUrl) pinterestLink.href=data.pinterestUrl;
     const products=(data.featuredProducts||[]).filter(p=>p.featured);
     target.innerHTML=products.map(p=>`
       <article class="card">
