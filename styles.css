@@ -85,3 +85,31 @@ footer .social-links {
   justify-content: center !important;
   gap: 16px !important;
 }
+/* Fix footer social icons */
+footer {
+  overflow: visible !important;
+}
+
+footer .foot {
+  min-height: 140px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+footer .social-links {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+footer .social-links a {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  overflow: visible !important;
+}
