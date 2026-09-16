@@ -1,0 +1,40 @@
+{
+  "featuredProducts": [
+    {
+      "id": "homeowner-maintenance-planner",
+      "name": "First-Time Homeowner Maintenance Planner",
+      "description": "A practical system for seasonal maintenance, repairs, appliances, warranties and home projects.",
+      "category": "Home & Life",
+      "etsy_url": "#",
+      "amazon_url": "#",
+      "featured": true
+    },
+    {
+      "id": "teacher-command-center",
+      "name": "The Teacher Command Center",
+      "description": "An undated planning and organization workbook for teachers.",
+      "category": "Education",
+      "etsy_url": "#",
+      "amazon_url": "#",
+      "featured": true
+    },
+    {
+      "id": "story-rich-travel-journal",
+      "name": "The Story-Rich Travel Journal",
+      "description": "Capture the places, details and stories that make a trip memorable.",
+      "category": "Travel",
+      "etsy_url": "#",
+      "amazon_url": "#",
+      "featured": true
+    },
+    {
+      "id": "3d-print-project-lab",
+      "name": "The 3D Print Project Lab",
+      "description": "A calibration, settings and build-results logbook for FDM makers.",
+      "category": "Hobbies",
+      "etsy_url": "#",
+      "amazon_url": "#",
+      "featured": true
+    }
+  ]
+}
