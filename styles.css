@@ -33,3 +33,30 @@ footer{background:var(--deep);color:white;padding:35px 0}.foot{display:flex;just
   padding: 16px;
   background: #f2f0e8;
 }
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: white;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.social-links a:hover {
+  opacity: 0.75;
+  transform: translateY(-2px);
+}
