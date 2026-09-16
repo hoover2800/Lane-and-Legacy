@@ -21,3 +21,15 @@ footer{background:var(--deep);color:white;padding:35px 0}.foot{display:flex;just
 .notice{background:#fff4df;border:1px solid #ead4aa;padding:12px 15px;border-radius:8px;font-size:13px;margin-top:22px;max-width:650px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.links a:not(.pill){display:none}}
 @media(max-width:600px){nav{height:72px}.logo{width:155px}.hero{padding:52px 0}.grid{grid-template-columns:1fr}.actions{flex-direction:column}.cta{min-width:0}.section-head{align-items:start;flex-direction:column}.foot{flex-direction:column;text-align:center}}
+.card .art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.card .art:has(img) {
+  padding: 16px;
+  background: #f2f0e8;
+}
