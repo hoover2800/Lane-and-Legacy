@@ -4,6 +4,8 @@ async function loadProducts(){
   try{
     const r=await fetch('products.json',{cache:'no-store'});
     const data=await r.json();
+    const etsyShop=document.getElementById('etsy-shop');
+    if(etsyShop && data.etsyShopUrl) etsyShop.href=data.etsyShopUrl;
     const products=(data.featuredProducts||[]).filter(p=>p.featured);
     target.innerHTML=products.map(p=>`
       <article class="card">
