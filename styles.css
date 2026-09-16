@@ -60,3 +60,28 @@ footer{background:var(--deep);color:white;padding:35px 0}.foot{display:flex;just
   opacity: 0.75;
   transform: translateY(-2px);
 }
+/* Force social icons to normal size */
+footer .social-links a {
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+footer .social-links a svg {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  display: block !important;
+  flex: 0 0 22px !important;
+}
+
+footer .social-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+}
