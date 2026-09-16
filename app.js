@@ -10,6 +10,10 @@ async function loadProducts(){
 if(facebookLink && data.facebookUrl) facebookLink.href=data.facebookUrl;
 const pinterestLink=document.getElementById('pinterest-link');
 if(pinterestLink && data.pinterestUrl) pinterestLink.href=data.pinterestUrl;
+    const instagramLink=document.getElementById('instagram-link');
+if(instagramLink && data.instagramUrl) instagramLink.href=data.instagramUrl;
+const tiktokLink=document.getElementById('tiktok-link');
+if(tiktokLink && data.tiktokUrl) tiktokLink.href=data.tiktokUrl;
     const products=(data.featuredProducts||[]).filter(p=>p.featured);
     target.innerHTML=products.map(p=>`
       <article class="card">
