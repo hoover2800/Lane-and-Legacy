@@ -233,4 +233,13 @@ footer .social-links a i {
     line-height: 1.05 !important;
     margin-bottom: 16px !important;
   }
+/* Tighten spacing above footer on mobile */
+@media (max-width: 700px) {
+  .about {
+    padding-bottom: 40px !important;
+  }
+
+  footer {
+    margin-top: 0 !important;
+  }
 }
