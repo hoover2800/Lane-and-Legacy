@@ -94,6 +94,7 @@ footer .foot {
   min-height: 140px !important;
   display: flex !important;
   align-items: center !important;
+  justify-content: space-between !important;
 }
 
 footer .social-links {
