@@ -212,4 +212,18 @@ footer .social-links a i {
     font-size: 44px !important;
     line-height: 0.98 !important;
   }
+/* Mobile hero spacing */
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero .eyebrow {
+    margin-bottom: 22px !important;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px !important;
+  }
 }
