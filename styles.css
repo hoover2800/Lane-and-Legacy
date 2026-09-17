@@ -226,4 +226,11 @@ footer .social-links a i {
   .hero h1 {
     margin-bottom: 28px !important;
   }
+/* Mobile Featured Products heading */
+@media (max-width: 700px) {
+  #products .section-head h2 {
+    font-size: 44px !important;
+    line-height: 1.05 !important;
+    margin-bottom: 16px !important;
+  }
 }
