@@ -194,4 +194,16 @@ footer .social-links a i {
     padding: 12px 14px;
     text-align: center;
   }
+/* Ensure all mobile menu links are visible */
+@media (max-width: 700px) {
+  header .links.open a {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  header .links.open {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
