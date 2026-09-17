@@ -143,3 +143,55 @@ footer .social-links a i {
     font-size: 13px !important;
   }
 }
+/* Mobile navigation button - hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Mobile navigation */
+@media (max-width: 700px) {
+  header nav.wrap {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    border: 0;
+    border-radius: 50%;
+    background: #0b3d35;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  header .links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  header .links.open {
+    display: flex;
+  }
+
+  header .links a {
+    display: block;
+    padding: 12px 14px;
+    text-align: center;
+  }
+}
