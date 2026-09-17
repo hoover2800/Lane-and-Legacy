@@ -209,7 +209,7 @@ footer .social-links a i {
 /* Mobile hero headline sizing */
 @media (max-width: 700px) {
   .hero h1 {
-    font-size: 54px !important;
+    font-size: 44px !important;
     line-height: 0.98 !important;
   }
 }
