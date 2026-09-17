@@ -206,4 +206,10 @@ footer .social-links a i {
     display: flex !important;
     flex-direction: column !important;
   }
+/* Mobile hero headline sizing */
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: 54px !important;
+    line-height: 0.98 !important;
+  }
 }
