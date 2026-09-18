@@ -1,0 +1,33 @@
+[
+  {
+    "asset": "assets/images/travel-approved.png",
+    "source": "Owner-supplied front_thumbnail.png, Travel brand v3",
+    "sha256": "04f31ddca1e5d68fb028f01346d5c3180a6748119fe415419a5e0aabc197a3c6",
+    "webCopy": "assets/images/travel-approved.webp",
+    "encoding": "Lossless WebP; identical decoded pixels"
+  },
+  {
+    "asset": "assets/images/kiln-glaze-logbook.png",
+    "source": "Approved front proof CR-01-C02-v002",
+    "approvalDate": "2026-09-10T08:12:37.536516+00:00",
+    "sha256": "d48f2c5eaee718ea774d859f431e5bcbd4903747ac8982b87f092527c7814078",
+    "webCopy": "assets/images/kiln-glaze-logbook.webp",
+    "encoding": "Lossless WebP; identical decoded pixels"
+  },
+  {
+    "asset": "assets/images/pickleball-progress-playbook.png",
+    "source": "Approved front proof CR-02-C03-v002",
+    "approvalDate": "2026-09-10T08:12:37.547819+00:00",
+    "sha256": "548c2a6120ecd5279737951b1730ac940dc90bcc29412430bddd0a23ba1f2294",
+    "webCopy": "assets/images/pickleball-progress-playbook.webp",
+    "encoding": "Lossless WebP; identical decoded pixels"
+  },
+  {
+    "asset": "assets/images/home-espresso-dial-in-lab.png",
+    "source": "Approved front proof CR-04-C04-v002",
+    "approvalDate": "2026-09-10T08:12:37.574428+00:00",
+    "sha256": "ba584116455839b9756df11c5abca16ea0930bb728f8a5107c628b41fafa3e14",
+    "webCopy": "assets/images/home-espresso-dial-in-lab.webp",
+    "encoding": "Lossless WebP; identical decoded pixels"
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "asset": "workspace",
+    "source": "assets/originals/premium_editorial_lifestyle_photograph_for_a_modern_publishing_and_productivity_brand_bright_organi_h6hycpizo1ddpvz21n4p_2.png",
+    "sha256": "88d23f80890293d78411d152cc761a8f918a804409cd4a850ca49f768df178a4",
+    "dimensions": [
+      832,
+      1248
+    ],
+    "webCopies": [
+      {
+        "path": "assets/images/workspace-480.webp",
+        "bytes": 29346,
+        "size": [
+          480,
+          720
+        ]
+      },
+      {
+        "path": "assets/images/workspace-832.webp",
+        "bytes": 56978,
+        "size": [
+          832,
+          1248
+        ]
+      }
+    ]
+  },
+  {
+    "asset": "scenic",
+    "source": "assets/originals/wide_cinematic_landscape_photograph_for_a_sophisticated_publishing_and_productivity_brand_peaceful__vfuprfudgmji16o4pvz0_1.png",
+    "sha256": "a0e18e8d8a194446fd1e3605c8cd48f7b440de16f734febf569587131e442a91",
+    "dimensions": [
+      832,
+      1248
+    ],
+    "webCopies": [
+      {
+        "path": "assets/images/scenic-480.webp",
+        "bytes": 35196,
+        "size": [
+          480,
+          720
+        ]
+      },
+      {
+        "path": "assets/images/scenic-832.webp",
+        "bytes": 91556,
+        "size": [
+          832,
+          1248
+        ]
+      }
+    ]
+  },
+  {
+    "asset": "forest",
+    "source": "assets/originals/ultra-wide_subtle_evergreen_forest_landscape_designed_specifically_as_a_website_footer_background_f_u9ws5wf4ymdveoih8aib_0.png",
+    "sha256": "a884428dd7750a179ca8e28e874ee111f5982c03dab23f949b474f90b23b0bec",
+    "dimensions": [
+      832,
+      1248
+    ],
+    "webCopies": [
+      {
+        "path": "assets/images/forest-480.webp",
+        "bytes": 22976,
+        "size": [
+          480,
+          720
+        ]
+      },
+      {
+        "path": "assets/images/forest-832.webp",
+        "bytes": 69352,
+        "size": [
+          832,
+          1248
+        ]
+      }
+    ]
+  }
+]

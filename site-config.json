@@ -1,0 +1,32 @@
+{
+  "shops": {
+    "etsy": "https://www.etsy.com/shop/LaneandLegacy",
+    "amazon": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/laneandlegacypublishing",
+    "pinterest": "https://www.pinterest.com/laneandlegacypublishing/",
+    "tiktok": "https://www.tiktok.com/@laneandlegacy",
+    "facebook": "https://www.facebook.com/profile.php?id=61594438860574",
+    "youtube": "https://www.youtube.com/@laneandlegacypublishing"
+  },
+  "outboundTracking": {
+    "enabled": false,
+    "source": null,
+    "campaign": null,
+    "platforms": [
+      "etsy",
+      "amazon"
+    ]
+  },
+  "linkProvenance": "Existing repository destinations plus owner-supplied Homeowner, Teacher and YouTube URLs. General Amazon storefront remains unknown.",
+  "featuredSelection": {
+    "mode": "manual",
+    "limit": 4,
+    "periodDays": 7,
+    "epoch": "2026-09-18",
+    "performanceRankedIds": []
+  },
+  "digitalStatus": "pending_publication",
+  "contentVersion": "2026-09-17-catalog-v1"
+}

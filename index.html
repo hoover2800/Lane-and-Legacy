@@ -1,51 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lane & Legacy Publishing | Practical Tools for Real Life</title>
-<meta name="description" content="Practical planners, workbooks and digital tools designed to help you organize, plan and make progress.">
-<meta property="og:title" content="Lane & Legacy Publishing"><meta property="og:description" content="Practical tools for real life.">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lane & Legacy Publishing | Practical Tools for Real Life</title>
+  <meta name="description" content="Practical planners, workbooks and digital tools to help you organize, plan and make progress—at home, work, school and beyond.">
+  <meta property="og:title" content="Lane & Legacy Publishing">
+  <meta property="og:description" content="Practical planners, workbooks & digital tools for real life.">
+  <meta name="theme-color" content="#193e35">
+  <link rel="icon" href="assets/images/logo.webp">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-<header>
-  <nav class="wrap">
-  <a href="#home"><img class="logo" src="logo.png" alt="Lane & Legacy Publishing"></a>
-  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-  <div class="links">
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#social">Social</a>
-      <a class="pill" href="https://www.etsy.com/shop/LaneandLegacy" target="_blank" rel="noopener">Shop</a>
-    </div>
-  </nav>
-</header>
-<main>
-<section class="hero" id="home"><div class="wrap">
-<div class="eyebrow">Tools for a more organized life</div>
-<h1>Practical planners, workbooks & digital tools for real life.</h1>
-<p class="lead">Resources designed to help you organize, plan and make progress at home, work, school and beyond.</p>
-<div class="actions"><a class="cta etsy" href="https://www.etsy.com/shop/LaneandLegacy" id="etsy-shop" target="_blank" rel="noopener">SHOP DIGITAL PRODUCTS →</a><a class="cta amazon" href="https://www.amazon.com/dp/B0HHYCFRKK" id="amazon-shop" target="_blank" rel="noopener">SHOP BOOKS & WORKBOOKS →</a></div>
-<div class="trust"><span>Plan smarter</span><span>Track what matters</span><span>Make progress</span></div>
-</div></section>
-<section id="products"><div class="wrap"><div class="section-head"><div><h2>Featured Products</h2><div>Print and digital tools from Lane & Legacy Publishing.</div></div></div><div class="grid" id="product-grid"><p>Loading products…</p></div></div></section>
-<section class="about" id="about"><div class="wrap about-grid"><div><div class="eyebrow">Lane & Legacy Publishing</div><h2>Useful tools. Thoughtful design.</h2><p>We create practical resources that make planning, tracking and organizing easier—without unnecessary complexity.</p><p>Choose digital products on Etsy or printed books and workbooks on Amazon.</p></div><div class="brand-block"><img src="logo.png" alt="Lane & Legacy Publishing logo"></div></div></section>
-</main>
-<footer id="social">
-  <div class="wrap foot">
-    <img src="logo.png" alt="Lane & Legacy Publishing">
- <div class="social-links">
-  <a id="facebook-link" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-  <a id="pinterest-link" href="#" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-  <a id="instagram-link" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-  <a id="tiktok-link" href="#" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-</div>
-    <span>© 2026 Lane & Legacy Publishing. All rights reserved.</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="home" class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home" aria-label="Lane & Legacy Publishing home"><img src="assets/images/logo.webp" width="1254" height="1254" alt="Lane & Legacy Publishing"></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i><span>Menu</span></button>
+    <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+      <a class="home-link" href="#home" aria-current="page">Home</a><a href="#products" data-catalog="all">Products</a><button type="button" data-dialog="about-dialog">About</button><button type="button" data-dialog="contact-dialog">Contact</button>
+      <button class="search-toggle icon-button" type="button" aria-label="Search products"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+    </nav>
+    <div class="header-follow"><a class="pill" href="#social">Follow Us</a><p class="brand-statement">Plan today.<br>A brighter tomorrow.</p></div>
   </div>
+</header>
+<main id="main" tabindex="-1">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow">Tools for a more organized life</p>
+        <h1 id="hero-title">Practical planners,<br class="desktop-break"> workbooks & digital tools<br class="desktop-break"> for real life.</h1>
+        <p class="lead">Resources to help you organize, plan, and make progress in every area of life — at home, work, school and beyond.</p>
+        <ul class="hero-values" aria-label="Our purpose">
+          <li><i class="fa-solid fa-leaf" aria-hidden="true"></i><span>Plan<br>smarter</span></li>
+          <li><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span>Build<br>good habits</span></li>
+          <li><i class="fa-solid fa-heart" aria-hidden="true"></i><span>Create a<br>brighter tomorrow</span></li>
+        </ul>
+      </div>
+      <div class="hero-photo"><img src="assets/images/workspace-832.webp" srcset="assets/images/workspace-480.webp 480w, assets/images/workspace-832.webp 832w" sizes="(max-width: 700px) 100vw, 52vw" width="832" height="1248" fetchpriority="high" alt="Cream and terracotta notebooks, a ceramic mug and a leafy plant on a sunlit wooden desk"></div>
+      <div class="shop-actions">
+        <span class="cta etsy" id="etsy-shop" aria-disabled="true"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span><strong>Shop digital products</strong><span>On Etsy <span aria-hidden="true">→</span></span></span></span>
+        <span class="cta amazon" id="amazon-shop" aria-disabled="true"><i class="fa-brands fa-amazon" aria-hidden="true"></i><span><strong>Shop books & workbooks</strong><span>Amazon link pending</span></span></span>
+      </div>
+    </div>
+  </section>
+  <nav class="category-strip" aria-label="Browse product categories"><div class="wrap category-list" id="category-list"></div></nav>
+  <section id="products" class="products-section" aria-labelledby="products-heading">
+    <div class="wrap">
+      <div class="section-head"><div><h2 id="products-heading">Featured Products</h2><p id="products-description">Popular tools to help you plan, track and make progress.</p></div><button class="text-link" type="button" id="view-all">View All Products <span aria-hidden="true">→</span></button></div>
+      <nav class="catalog-platforms" aria-label="Shop by format"><a href="#products" data-kind="print">Books &amp; workbooks</a><a href="#products" data-kind="digital">Etsy &amp; digital products <span>Coming soon</span></a></nav>
+      <div class="catalog-tools" id="catalog-tools" hidden>
+        <div class="search-field"><label for="product-search">Search products</label><input id="product-search" type="search" placeholder="Find your next practical tool…" autocomplete="off"></div>
+        <div class="category-field"><label for="category-select">Category</label><select id="category-select"><option value="all">All categories</option></select></div>
+        <button class="text-link" type="button" id="reset-filters">Clear filters</button>
+      </div>
+      <p class="catalog-status" id="catalog-status" role="status" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid" aria-busy="true"><p>Loading products…</p></div>
+      <noscript><p>Enable JavaScript to browse the product catalog. You can also visit <a href="https://www.etsy.com/shop/LaneandLegacy">Lane & Legacy on Etsy</a>.</p></noscript>
+    </div>
+  </section>
+  <section id="social" class="brand-social" aria-labelledby="social-heading">
+    <div class="scenic-panel"><img src="assets/images/scenic-832.webp" srcset="assets/images/scenic-480.webp 480w, assets/images/scenic-832.webp 832w" sizes="(max-width: 700px) 100vw, 42vw" width="832" height="1248" loading="lazy" alt="Warm sunlight falling over a peaceful evergreen forest and distant hills"><p>A more organized you.<br>A brighter tomorrow.</p></div>
+    <div class="social-copy"><p class="eyebrow">Small steps. Lasting progress.</p><h2 id="social-heading">Follow Lane & Legacy</h2><p>Practical tools. Thoughtful design.<br>A little inspiration for everyday life.</p><div class="social-links" id="social-links" aria-label="Lane & Legacy social accounts"></div></div>
+    <ul class="brand-values" aria-label="Our values"><li><i class="fa-solid fa-leaf" aria-hidden="true"></i><span>Practical<br>& purposeful</span></li><li><i class="fa-solid fa-users" aria-hidden="true"></i><span>Built for<br>real life</span></li><li><i class="fa-solid fa-heart" aria-hidden="true"></i><span>Small steps.<br>Big results.</span></li></ul>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-main"><a class="brand footer-brand" href="#home" aria-label="Lane & Legacy Publishing home"><img src="assets/images/logo.webp" width="1254" height="1254" loading="lazy" alt="Lane & Legacy Publishing"></a><nav aria-label="Footer navigation"><a href="#home">Home</a><a href="#products" data-catalog="all">Products</a><button type="button" data-dialog="about-dialog">About</button><button type="button" data-dialog="contact-dialog">Contact</button></nav><p class="brand-statement">Plan today.<br>A brighter tomorrow.</p></div>
+  <div class="footer-rule"><div class="wrap footer-bottom"><p>© 2026 Lane & Legacy Publishing. All rights reserved.</p><nav aria-label="Browse product types"><a href="#products" data-kind="planner">Planners</a><a href="#products" data-kind="workbook">Workbooks</a><a href="#products" data-kind="tracker">Trackers</a><a href="#products" data-kind="journal">Journals</a><a href="#products" data-kind="digital">Digital Tools</a></nav></div></div>
 </footer>
-  <script src="app.js"></script>
+<dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-top"><p class="eyebrow">Lane & Legacy Publishing</p><button type="button" class="dialog-close icon-button" aria-label="Close about"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><h2 id="about-title">Useful tools.<br>Thoughtful design.</h2><p>We create practical resources that make planning, tracking and organizing easier—without unnecessary complexity.</p><p>For home, work, school and everything in between, our purpose is simple: help you take the next small step.</p><a class="pill dialog-products" href="#products" data-catalog="all">Explore our products <span aria-hidden="true">→</span></a></dialog>
+<dialog id="contact-dialog" aria-labelledby="contact-title"><div class="dialog-top"><p class="eyebrow">Let’s connect</p><button type="button" class="dialog-close icon-button" aria-label="Close contact"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><h2 id="contact-title">Contact Lane & Legacy</h2><p>For a question about an Etsy purchase, visit our shop and use Etsy’s contact option. You can also find us on our social profiles.</p><div id="contact-links" class="contact-links"></div></dialog>
 </body>
 </html>
