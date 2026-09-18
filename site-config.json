@@ -11,22 +11,30 @@
     "youtube": "https://www.youtube.com/@laneandlegacypublishing"
   },
   "outboundTracking": {
-    "enabled": false,
-    "source": null,
-    "campaign": null,
+    "enabled": true,
+    "source": "laneandlegacy",
+    "campaign": "website-catalog",
     "platforms": [
       "etsy",
-      "amazon"
+      "amazon",
+      "digital"
     ]
   },
   "linkProvenance": "Existing repository destinations plus owner-supplied Homeowner, Teacher and YouTube URLs. General Amazon storefront remains unknown.",
   "featuredSelection": {
-    "mode": "manual",
+    "mode": "performance",
     "limit": 4,
     "periodDays": 7,
     "epoch": "2026-09-18",
     "performanceRankedIds": []
   },
   "digitalStatus": "pending_publication",
-  "contentVersion": "2026-09-17-catalog-v1"
+  "contentVersion": "2026-09-18-v1",
+  "analytics": {
+    "enabled": false,
+    "endpoint": "/api/events",
+    "status": "AWAITING_EXISTING_WORKER_D1_BINDING",
+    "privacy": "No cookies, visitor IDs, IP storage, raw queries or email. Honor DNT and GPC.",
+    "marketplaceConversions": "Unavailable without verified marketplace reports; outbound clicks are not sales."
+  }
 }

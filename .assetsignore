@@ -1,0 +1,7 @@
+.git
+qa
+*.md
+worker.mjs
+analytics-schema.sql
+wrangler*
+package*.json

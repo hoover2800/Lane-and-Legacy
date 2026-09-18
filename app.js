@@ -41,7 +41,7 @@ function selectProducts(products, options = {}) {
   const needle = query.trim().toLocaleLowerCase();
   const result = products.filter(p => p.active === true && p.title && p.id)
     .filter(p => category === 'all' || p.category === category)
-    .filter(p => !kind || (kind === 'digital' ? p.formats?.includes('digital') : kind === 'print' ? p.formats?.includes('print') : p.types?.includes(kind)))
+    .filter(p => !kind || (kind === 'digital' ? (p.formats?.includes('digital') || ['spreadsheet','template','calculator','toolkit','web_utility','free_tool','digital_tool'].includes(p.productType)) : kind === 'print' ? p.formats?.includes('print') : p.types?.includes(kind)))
     .filter(p => !needle || [p.title,p.subtitle,p.shortDescription,p.description,p.category].join(' ').toLocaleLowerCase().includes(needle))
     .sort((a,b) => (a.featuredPriority ?? Number.MAX_SAFE_INTEGER) - (b.featuredPriority ?? Number.MAX_SAFE_INTEGER) || a.title.localeCompare(b.title));
   if (!featured) return result;
@@ -86,18 +86,22 @@ function outboundAttributes(url, { platform, placement, productId = '', campaign
 function productCard(product, placement = 'product-card') {
   const image = safeImage(product.image);
   const buttons = [];
+  for (const link of product.channelLinks ?? []) {
+    const attributes=outboundAttributes(link.url,{platform:link.channel || 'digital',placement,productId:product.product_id || product.id,campaign:product.campaign,source:product.source});
+    if(attributes)buttons.push(`<a class="etsy" ${attributes}>${escapeHTML(link.label || 'View digital tool')}</a>`);
+  }
   for (const format of product.formats ?? []) {
     const digital = format === 'digital';
     if (!digital && format !== 'print') continue;
     const platform = digital ? 'etsy' : 'amazon';
     const url = digital ? product.etsyUrl : product.amazonUrl;
     const label = digital ? 'Digital on Etsy' : 'Book on Amazon';
-    const attributes = outboundAttributes(url, { platform, placement, productId: product.id, campaign: product.campaign, source: product.source });
+    const attributes = outboundAttributes(url, { platform, placement, productId: product.product_id || product.id, campaign: product.campaign, source: product.source });
     buttons.push(attributes
       ? `<a class="${platform}" ${attributes} aria-label="${escapeHTML(label + ': ' + product.title)}">${label}</a>`
       : `<span class="unavailable" aria-disabled="true" aria-label="${escapeHTML(label + ': link not yet available for ' + product.title)}">${!digital && product.status === 'pending_publication' ? 'Awaiting Amazon publication' : (digital ? 'Digital' : 'Book') + ' link coming soon'}</span>`);
   }
-  return `<article class="product-card" data-product-id="${escapeHTML(product.id)}">
+  return `<article class="product-card" data-product-id="${escapeHTML(product.product_id || product.id)}">
     <div class="product-art">${image ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(product.imageAlt || product.title + ' cover')}" loading="lazy" decoding="async" width="${Number(product.imageWidth) || 404}" height="${Number(product.imageHeight) || 522}">` : '<span>Cover preview coming soon</span>'}</div>
     <h3>${escapeHTML(product.title)}</h3><p>${escapeHTML(product.shortDescription)}</p>
     <div class="card-actions">${buttons.join('')}</div>

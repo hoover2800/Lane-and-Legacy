@@ -29,7 +29,11 @@
       "campaign": null,
       "source": null,
       "etsyStatus": "pending_publication",
-      "linkSource": "Owner supplied"
+      "linkSource": "Owner supplied",
+      "channelLinks": [],
+      "product_id": "kdp-first-time-homeowner-maintenance-planner-20260906",
+      "product_family_id": "family-608409149c29970b793d",
+      "opportunity_id": null
     },
     {
       "id": "teacher-command-center",
@@ -61,7 +65,11 @@
       "campaign": null,
       "source": null,
       "etsyStatus": "pending_publication",
-      "linkSource": "Owner supplied"
+      "linkSource": "Owner supplied",
+      "product_id": "kdp-teacher-command-center-undated-planner-20260908",
+      "product_family_id": "family-ac1edaae281d4a1de7d1",
+      "opportunity_id": null,
+      "channelLinks": []
     },
     {
       "id": "story-rich-travel-journal",
@@ -93,7 +101,11 @@
       "etsyStatus": "pending_publication",
       "linkSource": null,
       "imageWidth": 212,
-      "imageHeight": 320
+      "imageHeight": 320,
+      "product_id": "kdp-story-rich-travel-journal-20260909",
+      "product_family_id": "family-2f179cadae37c0a23171",
+      "opportunity_id": null,
+      "channelLinks": []
     },
     {
       "id": "3d-print-project-lab",
@@ -124,7 +136,11 @@
       "campaign": null,
       "source": null,
       "etsyStatus": "pending_publication",
-      "linkSource": "Existing repository"
+      "linkSource": "Existing repository",
+      "product_id": "kdp-3d-print-calibration-and-project-lab-0c7df325",
+      "product_family_id": "family-c01eada0906f551e9122",
+      "opportunity_id": null,
+      "channelLinks": []
     },
     {
       "id": "kiln-glaze-logbook",
@@ -156,7 +172,11 @@
       "campaign": null,
       "source": null,
       "imageWidth": 773,
-      "imageHeight": 1000
+      "imageHeight": 1000,
+      "product_id": "kdp-ceramics-kiln-firing-logbook-and-glaze-t-56dea2a2",
+      "product_family_id": "family-1ae6e0faf39cc043917f",
+      "opportunity_id": null,
+      "channelLinks": []
     },
     {
       "id": "pickleball-progress-playbook",
@@ -188,7 +208,11 @@
       "campaign": null,
       "source": null,
       "imageWidth": 773,
-      "imageHeight": 1000
+      "imageHeight": 1000,
+      "product_id": "kdp-12-week-pickleball-match-and-practice-im-971785dc",
+      "product_family_id": "family-644d11cae08d09899578",
+      "opportunity_id": null,
+      "channelLinks": []
     },
     {
       "id": "home-espresso-dial-in-lab",
@@ -220,7 +244,11 @@
       "campaign": null,
       "source": null,
       "imageWidth": 773,
-      "imageHeight": 1000
+      "imageHeight": 1000,
+      "product_id": "kdp-home-espresso-dial-in-and-sensory-lab-6e8b62a1",
+      "product_family_id": "family-00c9ecbb0ae7ffb86a43",
+      "opportunity_id": null,
+      "channelLinks": []
     }
   ]
 }
