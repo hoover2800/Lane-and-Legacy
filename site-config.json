@@ -33,7 +33,7 @@
   "analytics": {
     "enabled": true,
     "endpoint": "/api/events",
-    "status": "AWAITING_EXISTING_WORKER_D1_BINDING",
+    "status": "LIVE_BROWSER_TO_D1_VERIFIED",
     "privacy": "No cookies, visitor IDs, IP storage, raw queries or email. Honor DNT and GPC.",
     "marketplaceConversions": "Unavailable without verified marketplace reports; outbound clicks are not sales."
   }
