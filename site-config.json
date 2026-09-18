@@ -31,7 +31,7 @@
   "digitalStatus": "pending_publication",
   "contentVersion": "2026-09-18-v1",
   "analytics": {
-    "enabled": false,
+    "enabled": true,
     "endpoint": "/api/events",
     "status": "AWAITING_EXISTING_WORKER_D1_BINDING",
     "privacy": "No cookies, visitor IDs, IP storage, raw queries or email. Honor DNT and GPC.",
