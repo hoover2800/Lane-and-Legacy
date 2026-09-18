@@ -95,13 +95,12 @@ function productCard(product, placement = 'product-card') {
     if (!digital && format !== 'print') continue;
     const platform = digital ? 'etsy' : 'amazon';
     const url = digital ? product.etsyUrl : (product.active === true && product.status === 'published' ? product.amazonUrl : null);
-    const featuredAmazon = !digital && placement === 'featured-products';
-    const label = digital ? 'Digital on Etsy' : (featuredAmazon ? 'BUY NOW' : 'Book on Amazon');
-    const buttonContent = featuredAmazon ? '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> BUY NOW' : label;
+    const label = digital ? 'Digital on Etsy' : 'BUY NOW';
+    const buttonContent = !digital ? '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> BUY NOW' : label;
     const attributes = outboundAttributes(url, { platform, placement, productId: product.product_id || product.id, campaign: product.campaign, source: product.source });
     buttons.push(attributes
       ? `<a class="${platform}" ${attributes} aria-label="${escapeHTML(label + ': ' + product.title)}">${buttonContent}</a>`
-      : `<span class="unavailable" aria-disabled="true" aria-label="${escapeHTML((digital ? 'Digital on Etsy' : 'Book on Amazon') + ': link not yet available for ' + product.title)}">${!digital && product.status === 'pending_publication' ? 'Awaiting Amazon publication' : (digital ? 'Digital' : 'Book') + ' link coming soon'}</span>`);
+      : `<span class="unavailable" aria-disabled="true" aria-label="${escapeHTML((digital ? 'Digital on Etsy' : 'Amazon publication') + ': link not yet available for ' + product.title)}">${!digital && product.status === 'pending_publication' ? 'Awaiting Amazon publication' : (digital ? 'Digital' : 'Book') + ' link coming soon'}</span>`);
   }
   return `<article class="product-card" data-product-id="${escapeHTML(product.product_id || product.id)}">
     <div class="product-art">${image ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(product.imageAlt || product.title + ' cover')}" loading="lazy" decoding="async" width="${Number(product.imageWidth) || 404}" height="${Number(product.imageHeight) || 522}">` : '<span>Cover preview coming soon</span>'}</div>
