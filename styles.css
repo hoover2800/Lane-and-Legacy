@@ -1320,3 +1320,8 @@ dialog p {
 .catalog-platforms a { min-height:44px; display:inline-flex; align-items:center; gap:9px; text-decoration:underline; text-underline-offset:4px; }
 .catalog-platforms span { font-size:12px; color:var(--muted); text-decoration:none; }
 .product-art>span { color:var(--muted); font-size:14px; text-align:center; }
+
+/* Owner-approved artwork includes its own lettering; show the complete image. */
+.scenic-panel-approved { min-height:0; align-self:center; }
+.scenic-panel-approved img { position:static; height:auto; object-fit:contain; }
+.scenic-panel-approved:after { display:none; }
