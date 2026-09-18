@@ -1,0 +1,22 @@
+{
+  "name": "lane-and-legacy",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-18",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS_DB",
+      "database_name": "lane-legacy-analytics",
+      "database_id": "7c722c9d-5dde-4f71-8a27-fdc6db9a9400"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://laneandlegacy.com"
+  }
+}
