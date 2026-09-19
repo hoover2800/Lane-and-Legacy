@@ -26,8 +26,8 @@ test('duplicate signup never reapplies delivery tag',async()=>{
 });
 
 test('new contact requires both tags to read back',async()=>{
-  const tags=[];
-  const provider={lookup:async()=>null,create:async()=>({id:9,tags:[]}),addTag:async(_id,tag)=>{tags.push(tag);},readContact:async()=>({id:9,tags:[...tags]}),record:async()=>{}};
+  const tags=[];let created=false;
+  const provider={lookup:async()=>created?{id:9,tags:[...tags]}:null,create:async()=>{created=true;return {id:9,tags:[]};},addTag:async(_id,tag)=>{tags.push(tag);},readContact:async()=>({id:9,tags:[...tags]}),record:async()=>{}};
   const result=await signup(input,provider);
   assert.equal(result.status,202);
   assert.deepEqual(tags,[signupTagIds.segment,signupTagIds.request]);
@@ -43,4 +43,12 @@ test('consent storage failure stops contact creation and tagging',async()=>{
   const provider={lookup:async()=>null,create:async()=>{mutated=true;},addTag:async()=>{mutated=true;},readContact:async()=>{mutated=true;},record:async()=>{throw Error('storage unavailable');}};
   await assert.rejects(signup(input,provider),/storage unavailable/);
   assert.equal(mutated,false);
+});
+
+test('recreated suppressed contact is never tagged',async()=>{
+  let created=false;let applied=false;
+  const provider={lookup:async()=>created?{id:9,tags:[],unsubscribed:true}:null,create:async()=>{created=true;},addTag:async()=>{applied=true;},readContact:async()=>{},record:async()=>{}};
+  const result=await signup(input,provider);
+  assert.equal(result.status,202);
+  assert.equal(applied,false);
 });

@@ -25,7 +25,12 @@ function signupProvider(env) {
   const lookup=async email=>{
     const page=await systeme(env,`/contacts?email=${encodeURIComponent(email)}&limit=10`);
     if(!Array.isArray(page.items)||page.items.length>1)throw new Error('ambiguous contact lookup');
-    return page.items[0]||null;
+    const contact=page.items[0];
+    if(!contact)return null;
+    const base=`/contacts?email=${encodeURIComponent(email)}&limit=10`;
+    const [unsubscribed,bounced,needsConfirmation]=await Promise.all(['unsubscribed','bounced','needsConfirmation'].map(flag=>systeme(env,`${base}&${flag}=true`)));
+    if([unsubscribed,bounced,needsConfirmation].some(result=>!Array.isArray(result.items)||result.items.length>1))throw new Error('suppression lookup unavailable');
+    return {...contact,unsubscribed:contact.unsubscribed===true||unsubscribed.items.length===1,bounced:contact.bounced===true||bounced.items.length===1,needsConfirmation:contact.needsConfirmation===true||needsConfirmation.items.length===1};
   };
   return {
     lookup,

@@ -25,7 +25,12 @@ export async function signup(input, {lookup,create,addTag,readContact,record}) {
   }
   // Persist consent metadata before any mutation that could trigger delivery.
   await record({email:value.email,source:value.source,freebie:value.freebie,segment:'makers_hobbies'});
-  if (!contact) contact = await create(value.email);
+  if (!contact) {
+    await create(value.email);
+    contact = await lookup(value.email); // A recreated contact can inherit suppression.
+    if (!contact) throw new Error('contact create readback failed');
+    if (contact.unsubscribed || contact.bounced || contact.suppressed || contact.needsConfirmation) return {status:202,code:'accepted'};
+  }
   if (!Number.isSafeInteger(Number(contact?.id)) || Number(contact.id) < 1) throw new Error('unverified contact identity');
   // Never guess whether a duplicate request should retrigger delivery.
   if (!Array.isArray(contact.tags)) contact = await readContact(contact.id);
