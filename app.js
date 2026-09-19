@@ -180,7 +180,7 @@ async function initializeLinks() {
     for (const platform of ['etsy', 'amazon']) {
       const placeholder = document.getElementById(`${platform}-shop`);
       const attributes = outboundAttributes(platform === 'amazon' ? bookstoreURL(config) : config.shops?.[platform], { platform, placement: 'hero' });
-      if (attributes) placeholder.outerHTML = `<a class="cta ${platform}" id="${platform}-shop" ${attributes}>${placeholder.innerHTML}</a>`;
+      if (attributes) placeholder.outerHTML = `<a class="cta ${platform}" id="${platform}-shop" ${attributes}>${platform === 'amazon' ? placeholder.innerHTML.replace('Amazon link pending', 'On Amazon') : placeholder.innerHTML}</a>`;
     }
     document.getElementById('social-links').innerHTML = SOCIAL.map(social => {
       const attributes = outboundAttributes(config.social?.[social.id], { platform: social.id, placement: 'social-section' });
