@@ -36,10 +36,33 @@ function safeImage(value) {
   return encodeURI(value);
 }
 
+function verifiedMarketplace(product, platform) {
+  const url = safeURL(product[platform + 'Url']);
+  const verification = product.marketplaceVerification?.[platform];
+  if (!url || verification?.verified !== true || verification.url !== product[platform + 'Url']) return null;
+  const parsed = new URL(url);
+  const host = platform === 'amazon' ? 'amazon.com' : 'etsy.com';
+  const path = platform === 'amazon' ? /^\/dp\/[A-Z0-9]{10}(?:\/|$)/ : /^\/listing\/\d+(?:\/|$)/;
+  return [host, 'www.' + host].includes(parsed.hostname) && path.test(parsed.pathname) ? url : null;
+}
+
+function publiclyActive(product) {
+  return product.active === true && product.status === 'published' &&
+    Boolean(verifiedMarketplace(product, 'amazon') || verifiedMarketplace(product, 'etsy'));
+}
+
+function bookstoreURL(config) {
+  const url = safeURL(config.shops?.amazon);
+  const proof = config.shopVerification?.amazon;
+  if (!url || proof?.verified !== true || proof.url !== config.shops.amazon || proof.scope !== 'full-catalog') return null;
+  const parsed = new URL(url);
+  return ['amazon.com','www.amazon.com'].includes(parsed.hostname) && !/\/(dp|gp\/product)\//i.test(parsed.pathname) ? url : null;
+}
+
 function selectProducts(products, options = {}) {
   const { featured = true, category = 'all', query = '', kind = null, selection = {}, now = Date.now() } = options;
   const needle = query.trim().toLocaleLowerCase();
-  const result = products.filter(p => p.active === true && p.title && p.id)
+  const result = products.filter(p => publiclyActive(p) && p.title && p.id)
     .filter(p => category === 'all' || p.category === category)
     .filter(p => !kind || (kind === 'digital' ? (p.formats?.includes('digital') || ['spreadsheet','template','calculator','toolkit','web_utility','free_tool','digital_tool'].includes(p.productType)) : kind === 'print' ? p.formats?.includes('print') : p.types?.includes(kind)))
     .filter(p => !needle || [p.title,p.subtitle,p.shortDescription,p.description,p.category].join(' ').toLocaleLowerCase().includes(needle))
@@ -86,15 +109,13 @@ function outboundAttributes(url, { platform, placement, productId = '', campaign
 function productCard(product, placement = 'product-card') {
   const image = safeImage(product.image);
   const buttons = [];
-  for (const link of product.channelLinks ?? []) {
-    const attributes=outboundAttributes(link.url,{platform:link.channel || 'digital',placement,productId:product.product_id || product.id,campaign:product.campaign,source:product.source});
-    if(attributes)buttons.push(`<a class="etsy" ${attributes}>${escapeHTML(link.label || 'View digital tool')}</a>`);
-  }
-  for (const format of product.formats ?? []) {
+  for (const format of ['print', 'digital']) {
     const digital = format === 'digital';
     if (!digital && format !== 'print') continue;
     const platform = digital ? 'etsy' : 'amazon';
-    const url = digital ? product.etsyUrl : (product.active === true && product.status === 'published' ? product.amazonUrl : null);
+    const url = publiclyActive(product) ? verifiedMarketplace(product, platform) : null;
+    if (digital && !url) continue;
+    if (!digital && !url && !product.formats?.includes('print')) continue;
     const label = digital ? 'Digital on Etsy' : 'BUY NOW';
     const buttonContent = !digital ? '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> BUY NOW' : label;
     const attributes = outboundAttributes(url, { platform, placement, productId: product.product_id || product.id, campaign: product.campaign, source: product.source });
@@ -158,8 +179,8 @@ async function initializeLinks() {
     outboundTracking = config.outboundTracking || {};
     for (const platform of ['etsy', 'amazon']) {
       const placeholder = document.getElementById(`${platform}-shop`);
-      const attributes = outboundAttributes(config.shops?.[platform], { platform, placement: 'hero' });
-      if (attributes) placeholder.outerHTML = `<a class="cta ${platform}" id="${platform}-shop" ${attributes}>${placeholder.innerHTML}</a>`;
+      const attributes = outboundAttributes(platform === 'amazon' ? bookstoreURL(config) : config.shops?.[platform], { platform, placement: 'hero' });
+      if (attributes) placeholder.outerHTML = `<a class="cta ${platform}" id="${platform}-shop" ${attributes}>${platform === 'amazon' ? placeholder.innerHTML.replace('Amazon link pending', 'On Amazon') : placeholder.innerHTML}</a>`;
     }
     document.getElementById('social-links').innerHTML = SOCIAL.map(social => {
       const attributes = outboundAttributes(config.social?.[social.id], { platform: social.id, placement: 'social-section' });
@@ -299,4 +320,4 @@ if (typeof document !== 'undefined') {
   initializeCatalog();
   initializeSignup();
 }
-if (typeof module !== 'undefined') module.exports = { safeURL, safeImage, escapeHTML, selectProducts, outboundAttributes, productCard };
+if (typeof module !== 'undefined') module.exports = { verifiedMarketplace, publiclyActive, bookstoreURL, CATEGORIES, safeURL, safeImage, escapeHTML, selectProducts, outboundAttributes, productCard };

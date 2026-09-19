@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false,
+      "brokenImages": [],
+      "amazonButtons": [
+        "BUY NOW",
+        "BUY NOW",
+        "BUY NOW"
+      ],
+      "categories": 8
+    },
+    {
+      "width": 768,
+      "status": "PASS",
+      "overflow": false,
+      "brokenImages": [],
+      "amazonButtons": [
+        "BUY NOW",
+        "BUY NOW",
+        "BUY NOW"
+      ],
+      "categories": 8
+    },
+    {
+      "width": 390,
+      "status": "PASS",
+      "overflow": false,
+      "brokenImages": [],
+      "amazonButtons": [
+        "BUY NOW",
+        "BUY NOW",
+        "BUY NOW"
+      ],
+      "categories": 8
+    },
+    {
+      "width": 320,
+      "status": "PASS",
+      "overflow": false,
+      "brokenImages": [],
+      "amazonButtons": [
+        "BUY NOW",
+        "BUY NOW",
+        "BUY NOW"
+      ],
+      "categories": 8
+    }
+  ],
+  "futureFixture": {
+    "featured": 4,
+    "fullCatalog": 9,
+    "wellness": 9
+  },
+  "errors": [],
+  "externalLinkEvidence": "Saved September 19 browser QA; no new marketplace requests"
+}

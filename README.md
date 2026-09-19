@@ -1,3 +1,5 @@
+> Current catalog integration checkpoint: `CATALOG_INTEGRATION.md`. Older deployment/link notes below are historical.
+
 # Lane & Legacy Publishing website
 
 A static HTML/CSS/JavaScript website. The existing GitHub → Cloudflare Workers Builds integration deploys `main`. No framework, package manager, compilation step, Wrangler configuration, or replacement hosting service has been introduced.
@@ -14,14 +16,14 @@ Open http://127.0.0.1:4173. Serve over HTTP; opening `index.html` directly canno
 
 ## Product updates
 
-Edit `products.json`. Each record supports:
+Run the Factory catalog sync; `products.json` is generated and must not be maintained manually. See `CATALOG_INTEGRATION.md`. Each record supports:
 
 - `id`, `slug`: stable unique identifiers.
 - `title`, `subtitle`, `shortDescription`, `description`, `category`, `image`, `imageAlt`, image dimensions.
 - `price` (null until verified), `status`, `productType`, optional `campaign` and `source`.
 - `amazonUrl`, `etsyUrl`: verified HTTPS destinations, otherwise `null`.
-- `featured`, `featuredPriority`, `active`: homepage eligibility and order. The homepage displays up to four active featured records in ascending priority order; title breaks ties.
-- `formats`: confirmed formats (`print`, `digital`). Add `digital` only when that format is confirmed; its Etsy button then appears, disabled if the destination is missing.
+- `featured`, `featuredPriority`, `active`: homepage eligibility and order. The homepage displays up to four verified active records, preferring featured records in priority order; title breaks ties.
+- `formats`: confirmed formats (`print`, `digital`). Add `digital` only when confirmed; its Etsy button appears only with an exact verified live listing.
 - `types`: `planner`, `workbook`, `tracker`, `journal`; used by footer filtering.
 - `publishDate`: optional ISO date, currently unknown (`null`).
 
@@ -57,7 +59,7 @@ This repository has no build, lint, or TypeScript task. The static site itself i
 
 ## Review and deployment
 
-Completed work is committed on `redesign/visual-review`. Publishing was authorized, but GitHub push lacks authentication. Once authentication is available, push the reviewed commit to `main` through the existing Cloudflare integration. Do not change Cloudflare settings. The live URL is not recorded in this repository.
+Completed work is committed on `redesign/visual-review`. Existing publishing authorization applies. Authenticated GitHub access was verified September 19; production is https://laneandlegacy.com. The catalog continuation integrates with email production commit `12891b3` and retains the existing Cloudflare integration and disabled signup gates. See `CATALOG_INTEGRATION.md`.
 
 ## Featured selection
 

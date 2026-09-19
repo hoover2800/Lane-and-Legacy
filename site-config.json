@@ -41,5 +41,12 @@
     "enabled": false,
     "freebie": "first-layer-checklist",
     "turnstileSiteKey": "0x4AAAAAAE84ws6o7hrYn2aq"
+  },
+  "shopVerification": {
+    "amazon": {
+      "verified": false,
+      "url": null,
+      "scope": "full-catalog"
+    }
   }
 }
