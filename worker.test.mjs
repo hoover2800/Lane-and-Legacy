@@ -21,7 +21,7 @@ test('gated signup records consent, creates one contact, applies both tags, and 
     const path=String(url);
     calls.push({path,method:options.method||'GET'});
     if(path.includes('siteverify'))return Response.json({success:true,hostname:'laneandlegacy.com'});
-    if(path.includes('/api/contacts?'))return Response.json({items:/[?&](unsubscribed|bounced|needsConfirmation)=true/.test(path)?[]:(created?[{id:11,tags:[...tags]}]:[]),hasMore:false});
+    if(path.includes('/api/contacts?'))return Response.json({items:/[?&](unsubscribed|bounced|needsConfirmation)=true/.test(path)?[]:(created?[{id:11,email:'test@example.com',tags:[...tags]}]:[]),hasMore:false});
     if(path.endsWith('/api/contacts')&&options.method==='POST'){created=true;return Response.json({id:11,tags:[]},{status:201});}
     if(path.endsWith('/api/contacts/11/tags')){tags.push(JSON.parse(options.body).tagId);return Response.json({},{status:201});}
     if(path.endsWith('/api/contacts/11'))return Response.json({id:11,tags:[...tags]});
