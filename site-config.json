@@ -36,5 +36,12 @@
     "status": "LIVE_BROWSER_TO_D1_VERIFIED",
     "privacy": "No cookies, visitor IDs, IP storage, raw queries or email. Honor DNT and GPC.",
     "marketplaceConversions": "Unavailable without verified marketplace reports; outbound clicks are not sales."
+  },
+  "shopVerification": {
+    "amazon": {
+      "verified": false,
+      "url": null,
+      "scope": "full-catalog"
+    }
   }
 }
