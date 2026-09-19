@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "active": false,
-      "amazonUrl": null,
+      "active": true,
+      "amazonUrl": "https://www.amazon.com/dp/B0HHY5412K",
       "category": "hobbies",
       "channelLinks": [],
       "description": "Track matches, drills and skill development.",
@@ -17,7 +17,12 @@
       "imageAlt": "The Pickleball Progress Playbook — Lane & Legacy Publishing cover",
       "imageHeight": 1000,
       "imageWidth": 773,
-      "marketplaceVerification": {},
+      "marketplaceVerification": {
+        "amazon": {
+          "url": "https://www.amazon.com/dp/B0HHY5412K",
+          "verified": true
+        }
+      },
       "productType": "journal",
       "product_family_id": "family-644d11cae08d09899578",
       "product_id": "kdp-12-week-pickleball-match-and-practice-im-971785dc",
@@ -71,8 +76,8 @@
       ]
     },
     {
-      "active": false,
-      "amazonUrl": null,
+      "active": true,
+      "amazonUrl": "https://www.amazon.com/dp/B0HHR3YRDL",
       "category": "hobbies",
       "channelLinks": [],
       "description": "Record firings, glaze tests and kiln maintenance.",
@@ -87,7 +92,12 @@
       "imageAlt": "Kiln Firing & Glaze Test Logbook — Lane & Legacy Publishing cover",
       "imageHeight": 1000,
       "imageWidth": 773,
-      "marketplaceVerification": {},
+      "marketplaceVerification": {
+        "amazon": {
+          "url": "https://www.amazon.com/dp/B0HHR3YRDL",
+          "verified": true
+        }
+      },
       "productType": "logbook",
       "product_family_id": "family-1ae6e0faf39cc043917f",
       "product_id": "kdp-ceramics-kiln-firing-logbook-and-glaze-t-56dea2a2",
@@ -141,8 +151,8 @@
       ]
     },
     {
-      "active": false,
-      "amazonUrl": null,
+      "active": true,
+      "amazonUrl": "https://www.amazon.com/dp/B0HHZC1BCV",
       "category": "hobbies",
       "channelLinks": [],
       "description": "Record shot recipes, grinder settings and tasting notes.",
@@ -157,7 +167,12 @@
       "imageAlt": "The Home Espresso Dial-In Lab — Lane & Legacy Publishing cover",
       "imageHeight": 1000,
       "imageWidth": 773,
-      "marketplaceVerification": {},
+      "marketplaceVerification": {
+        "amazon": {
+          "url": "https://www.amazon.com/dp/B0HHZC1BCV",
+          "verified": true
+        }
+      },
       "productType": "journal",
       "product_family_id": "family-00c9ecbb0ae7ffb86a43",
       "product_id": "kdp-home-espresso-dial-in-and-sensory-lab-6e8b62a1",
