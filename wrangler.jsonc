@@ -2,6 +2,11 @@
   "name": "lane-and-legacy",
   "main": "worker.mjs",
   "compatibility_date": "2026-09-18",
+  "workers_dev": false,
+  "keep_vars": true,
+  "secrets": {
+    "required": ["SYSTEME_API_KEY", "TURNSTILE_SECRET", "SIGNUP_HASH_SECRET"]
+  },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
