@@ -252,9 +252,51 @@ async function initializeCatalog() {
   } finally { target.setAttribute('aria-busy', 'false'); }
 }
 
+async function initializeSignup() {
+  const form=document.getElementById('newsletter-form');
+  if(!form)return;
+  const status=form.querySelector('.newsletter-status');
+  const button=form.querySelector('button[type="submit"]');
+  const email=form.elements.email;
+  let config;
+  try{config=(await configuration()).emailSignup;}catch{return;}
+  if(config?.enabled!==true||typeof config.turnstileSiteKey!=='string'||!config.turnstileSiteKey)return;
+  const emit=type=>document.dispatchEvent(new CustomEvent('lane:email-event',{detail:{type,segment:'makers_hobbies',freebie:'first-layer-checklist'}}));
+  let seen=false;
+  const observer=new IntersectionObserver(entries=>{if(!seen&&entries.some(e=>e.isIntersecting)){seen=true;emit('signup_form_view');observer.disconnect();}},{threshold:.3});
+  observer.observe(form);
+  email.addEventListener('focus',()=>emit('signup_start'),{once:true});
+  const script=document.createElement('script');
+  script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  script.async=true;
+  let token='';
+  script.onload=()=>window.turnstile.render('#newsletter-challenge',{sitekey:config.turnstileSiteKey,callback:value=>{token=value;},'expired-callback':()=>{token='';}});
+  script.onerror=()=>{status.textContent='Signup is temporarily unavailable. Please try again later.';};
+  document.head.append(script);
+  button.disabled=false;button.textContent='Email me the free sheet';
+  status.textContent='Enter your email and check the consent box to receive the sheet.';
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(!email.validity.valid){status.textContent='Enter a valid email address.';email.focus();return;}
+    if(!form.elements.consent.checked){status.textContent='Please check the consent box to continue.';form.elements.consent.focus();return;}
+    if(!token){status.textContent='Complete the verification, then try again.';return;}
+    button.disabled=true;status.textContent='Submitting your request…';
+    const query=new URLSearchParams(location.search);
+    const source=/^[a-z0-9_-]{1,40}$/.test(query.get('utm_source')||'')?query.get('utm_source'):'website';
+    try {
+      const response=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email.value,consent:true,category:'hobbies',freebie:'first-layer-checklist',source,website:form.elements.website.value,turnstile:token})});
+      if(!response.ok)throw Error('signup unavailable');
+      status.textContent='Check your inbox for the First Layer Check sheet. If you already requested it, you may not receive another copy.';
+      emit('signup_success');form.reset();
+    } catch {status.textContent='We could not complete your request. Please try again later.';}
+    finally{token='';window.turnstile?.reset();button.disabled=false;}
+  });
+}
+
 if (typeof document !== 'undefined') {
   initializeNavigation();
   initializeLinks();
   initializeCatalog();
+  initializeSignup();
 }
 if (typeof module !== 'undefined') module.exports = { safeURL, safeImage, escapeHTML, selectProducts, outboundAttributes, productCard };

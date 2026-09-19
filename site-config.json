@@ -36,5 +36,10 @@
     "status": "LIVE_BROWSER_TO_D1_VERIFIED",
     "privacy": "No cookies, visitor IDs, IP storage, raw queries or email. Honor DNT and GPC.",
     "marketplaceConversions": "Unavailable without verified marketplace reports; outbound clicks are not sales."
+  },
+  "emailSignup": {
+    "enabled": false,
+    "freebie": "first-layer-checklist",
+    "turnstileSiteKey": "0x4AAAAAAE84ws6o7hrYn2aq"
   }
 }

@@ -12,13 +12,17 @@
   let referrer = null;
   try { referrer = new URL(document.referrer).hostname; } catch {}
   const base = {...attribution, campaign: attribution.utm_campaign, traffic_source:attribution.utm_source || referrer || 'direct', landing_page:location.pathname, is_test:query.get('factory_test')==='1'};
-  const send = (event_type, id=null, channel=null) => {
+  const send = (event_type, id=null, channel=null, extra={}) => {
     const p = catalog.products.find(p=>(p.product_id || p.id)===id || p.id===id);
-    const data = {...base,event_id:crypto.randomUUID(),event_type,channel,product_id:p?.product_id || id,product_family_id:p?.product_family_id || null,opportunity_id:p?.opportunity_id || null,product_type:p?.productType || null};
+    const data = {...base,event_id:crypto.randomUUID(),event_type,channel,product_id:p?.product_id || id,product_family_id:p?.product_family_id || null,opportunity_id:p?.opportunity_id || null,product_type:p?.productType || null,...extra};
     fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),keepalive:true}).catch(()=>{});
   };
   send('page_view');
   if (['pinterest','instagram','facebook','tiktok','youtube'].some(s=>base.traffic_source?.includes(s))) send('social_referral');
+  document.addEventListener('lane:email-event',e=>{
+    const type=e.detail?.type;
+    if(['signup_form_view','signup_start','signup_success'].includes(type))send(type,null,null,{freebie_id:e.detail.freebie,segment_id:e.detail.segment});
+  });
   document.addEventListener('click',e=>{
     const a=e.target.closest('a[data-outbound]'); if(!a)return;
     const type={amazon:'outbound_amazon',etsy:'outbound_etsy',digital:'digital_click'}[a.dataset.outbound];

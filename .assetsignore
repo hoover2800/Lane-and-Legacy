@@ -2,6 +2,11 @@
 qa
 *.md
 worker.mjs
+signup.mjs
+signup-config.mjs
+signup.test.mjs
+worker.test.mjs
 analytics-schema.sql
+email-signups-schema.sql
 wrangler*
 package*.json

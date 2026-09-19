@@ -6,7 +6,8 @@
     "directory": ".",
     "binding": "ASSETS",
     "run_worker_first": [
-      "/api/*"
+      "/api/*",
+      "/freebies/*"
     ]
   },
   "d1_databases": [
@@ -14,9 +15,15 @@
       "binding": "ANALYTICS_DB",
       "database_name": "lane-legacy-analytics",
       "database_id": "7c722c9d-5dde-4f71-8a27-fdc6db9a9400"
+    },
+    {
+      "binding": "LEADS_DB",
+      "database_name": "lane-legacy-leads",
+      "database_id": "64e08627-175b-4ee1-8bcc-e60bebf1b848"
     }
   ],
   "vars": {
-    "ALLOWED_ORIGIN": "https://laneandlegacy.com"
+    "ALLOWED_ORIGIN": "https://laneandlegacy.com",
+    "EMAIL_SIGNUP_ENABLED": "false"
   }
 }
