@@ -177,7 +177,8 @@ async function initializeLinks() {
   try {
     const config = await configuration();
     outboundTracking = config.outboundTracking || {};
-    for (const platform of ['etsy', 'amazon']) {
+    // The Amazon hero links to our local print catalog; storefront changes require review.
+    for (const platform of ['etsy']) {
       const placeholder = document.getElementById(`${platform}-shop`);
       const attributes = outboundAttributes(platform === 'amazon' ? bookstoreURL(config) : config.shops?.[platform], { platform, placement: 'hero' });
       if (attributes) placeholder.outerHTML = `<a class="cta ${platform}" id="${platform}-shop" ${attributes}>${platform === 'amazon' ? placeholder.innerHTML.replace('Amazon link pending', 'On Amazon') : placeholder.innerHTML}</a>`;
@@ -254,7 +255,14 @@ async function initializeCatalog() {
   });
   document.querySelectorAll('[data-catalog]').forEach(link => link.addEventListener('click', () => openCatalog()));
   document.querySelectorAll('[data-category]').forEach(link => link.addEventListener('click', () => openCatalog(link.dataset.category)));
-  document.querySelectorAll('[data-kind]').forEach(link => link.addEventListener('click', () => openCatalog('all', link.dataset.kind)));
+  document.querySelectorAll('[data-kind]').forEach(link => link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openCatalog('all', link.dataset.kind);
+    if (location.hash !== '#products') history.pushState(null, '', '#products');
+    document.getElementById('products').scrollIntoView();
+    document.getElementById('products-heading').focus({ preventScroll: true });
+  }));
   document.querySelector('.search-toggle').addEventListener('click', () => {
     openCatalog(); document.getElementById('products').scrollIntoView(); input.focus({ preventScroll: true });
   });

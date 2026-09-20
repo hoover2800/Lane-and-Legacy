@@ -54,7 +54,7 @@ button:disabled,[aria-disabled=true] {
 button:disabled {
   opacity:1
 }
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible {
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,#products-heading:focus-visible {
   outline:3px solid #bd663f;
   outline-offset:5px
 }
